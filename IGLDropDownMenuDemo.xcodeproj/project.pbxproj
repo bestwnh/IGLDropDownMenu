@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A12B43419B20C9600CC6235 /* IGLDropDownItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A12B43119B20C9600CC6235 /* IGLDropDownItem.m */; };
+		3A12B43519B20C9600CC6235 /* IGLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A12B43319B20C9600CC6235 /* IGLDropDownMenu.m */; };
+		3A29357C19B20673006BAAA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29357B19B20673006BAAA7 /* Foundation.framework */; };
+		3A29357E19B20673006BAAA7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29357D19B20673006BAAA7 /* CoreGraphics.framework */; };
+		3A29358019B20673006BAAA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29357F19B20673006BAAA7 /* UIKit.framework */; };
+		3A29358619B20673006BAAA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A29358419B20673006BAAA7 /* InfoPlist.strings */; };
+		3A29358819B20673006BAAA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A29358719B20673006BAAA7 /* main.m */; };
+		3A29358C19B20673006BAAA7 /* IGLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A29358B19B20673006BAAA7 /* IGLAppDelegate.m */; };
+		3A29358E19B20673006BAAA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A29358D19B20673006BAAA7 /* Images.xcassets */; };
+		3A29359519B20673006BAAA7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29359419B20673006BAAA7 /* XCTest.framework */; };
+		3A29359619B20673006BAAA7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29357B19B20673006BAAA7 /* Foundation.framework */; };
+		3A29359719B20673006BAAA7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A29357F19B20673006BAAA7 /* UIKit.framework */; };
+		3A29359F19B20673006BAAA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A29359D19B20673006BAAA7 /* InfoPlist.strings */; };
+		3A2935A119B20673006BAAA7 /* IGLDropDownMenuDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2935A019B20673006BAAA7 /* IGLDropDownMenuDemoTests.m */; };
+		3A2935B319B2094A006BAAA7 /* IGLDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2935B219B2094A006BAAA7 /* IGLDemoViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A29359819B20673006BAAA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A29357019B20673006BAAA7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A29357719B20673006BAAA7;
+			remoteInfo = IGLDropDownMenuDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A12B43019B20C9600CC6235 /* IGLDropDownItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownItem.h; sourceTree = "<group>"; };
+		3A12B43119B20C9600CC6235 /* IGLDropDownItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownItem.m; sourceTree = "<group>"; };
+		3A12B43219B20C9600CC6235 /* IGLDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDropDownMenu.h; sourceTree = "<group>"; };
+		3A12B43319B20C9600CC6235 /* IGLDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownMenu.m; sourceTree = "<group>"; };
+		3A29357819B20673006BAAA7 /* IGLDropDownMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IGLDropDownMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A29357B19B20673006BAAA7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3A29357D19B20673006BAAA7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3A29357F19B20673006BAAA7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3A29358319B20673006BAAA7 /* IGLDropDownMenuDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IGLDropDownMenuDemo-Info.plist"; sourceTree = "<group>"; };
+		3A29358519B20673006BAAA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3A29358719B20673006BAAA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A29358919B20673006BAAA7 /* IGLDropDownMenuDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IGLDropDownMenuDemo-Prefix.pch"; sourceTree = "<group>"; };
+		3A29358A19B20673006BAAA7 /* IGLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGLAppDelegate.h; sourceTree = "<group>"; };
+		3A29358B19B20673006BAAA7 /* IGLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IGLAppDelegate.m; sourceTree = "<group>"; };
+		3A29358D19B20673006BAAA7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A29359319B20673006BAAA7 /* IGLDropDownMenuDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IGLDropDownMenuDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A29359419B20673006BAAA7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3A29359C19B20673006BAAA7 /* IGLDropDownMenuDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IGLDropDownMenuDemoTests-Info.plist"; sourceTree = "<group>"; };
+		3A29359E19B20673006BAAA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3A2935A019B20673006BAAA7 /* IGLDropDownMenuDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownMenuDemoTests.m; sourceTree = "<group>"; };
+		3A2935B119B2094A006BAAA7 /* IGLDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDemoViewController.h; sourceTree = "<group>"; };
+		3A2935B219B2094A006BAAA7 /* IGLDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDemoViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A29357519B20673006BAAA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A29357E19B20673006BAAA7 /* CoreGraphics.framework in Frameworks */,
+				3A29358019B20673006BAAA7 /* UIKit.framework in Frameworks */,
+				3A29357C19B20673006BAAA7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A29359019B20673006BAAA7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A29359519B20673006BAAA7 /* XCTest.framework in Frameworks */,
+				3A29359719B20673006BAAA7 /* UIKit.framework in Frameworks */,
+				3A29359619B20673006BAAA7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A12B42F19B20C9600CC6235 /* IGLDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3A12B43219B20C9600CC6235 /* IGLDropDownMenu.h */,
+				3A12B43319B20C9600CC6235 /* IGLDropDownMenu.m */,
+				3A12B43019B20C9600CC6235 /* IGLDropDownItem.h */,
+				3A12B43119B20C9600CC6235 /* IGLDropDownItem.m */,
+			);
+			path = IGLDropDownMenu;
+			sourceTree = SOURCE_ROOT;
+		};
+		3A29356F19B20673006BAAA7 = {
+			isa = PBXGroup;
+			children = (
+				3A29358119B20673006BAAA7 /* IGLDropDownMenuDemo */,
+				3A29359A19B20673006BAAA7 /* IGLDropDownMenuDemoTests */,
+				3A29357A19B20673006BAAA7 /* Frameworks */,
+				3A29357919B20673006BAAA7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A29357919B20673006BAAA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A29357819B20673006BAAA7 /* IGLDropDownMenuDemo.app */,
+				3A29359319B20673006BAAA7 /* IGLDropDownMenuDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A29357A19B20673006BAAA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A29357B19B20673006BAAA7 /* Foundation.framework */,
+				3A29357D19B20673006BAAA7 /* CoreGraphics.framework */,
+				3A29357F19B20673006BAAA7 /* UIKit.framework */,
+				3A29359419B20673006BAAA7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A29358119B20673006BAAA7 /* IGLDropDownMenuDemo */ = {
+			isa = PBXGroup;
+			children = (
+				3A29358A19B20673006BAAA7 /* IGLAppDelegate.h */,
+				3A29358B19B20673006BAAA7 /* IGLAppDelegate.m */,
+				3A2935B119B2094A006BAAA7 /* IGLDemoViewController.h */,
+				3A2935B219B2094A006BAAA7 /* IGLDemoViewController.m */,
+				3A12B42F19B20C9600CC6235 /* IGLDropDownMenu */,
+				3A29358D19B20673006BAAA7 /* Images.xcassets */,
+				3A29358219B20673006BAAA7 /* Supporting Files */,
+			);
+			path = IGLDropDownMenuDemo;
+			sourceTree = "<group>";
+		};
+		3A29358219B20673006BAAA7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A29358319B20673006BAAA7 /* IGLDropDownMenuDemo-Info.plist */,
+				3A29358419B20673006BAAA7 /* InfoPlist.strings */,
+				3A29358719B20673006BAAA7 /* main.m */,
+				3A29358919B20673006BAAA7 /* IGLDropDownMenuDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A29359A19B20673006BAAA7 /* IGLDropDownMenuDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A2935A019B20673006BAAA7 /* IGLDropDownMenuDemoTests.m */,
+				3A29359B19B20673006BAAA7 /* Supporting Files */,
+			);
+			path = IGLDropDownMenuDemoTests;
+			sourceTree = "<group>";
+		};
+		3A29359B19B20673006BAAA7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A29359C19B20673006BAAA7 /* IGLDropDownMenuDemoTests-Info.plist */,
+				3A29359D19B20673006BAAA7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A29357719B20673006BAAA7 /* IGLDropDownMenuDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A2935A419B20673006BAAA7 /* Build configuration list for PBXNativeTarget "IGLDropDownMenuDemo" */;
+			buildPhases = (
+				3A29357419B20673006BAAA7 /* Sources */,
+				3A29357519B20673006BAAA7 /* Frameworks */,
+				3A29357619B20673006BAAA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IGLDropDownMenuDemo;
+			productName = IGLDropDownMenuDemo;
+			productReference = 3A29357819B20673006BAAA7 /* IGLDropDownMenuDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A29359219B20673006BAAA7 /* IGLDropDownMenuDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A2935A719B20673006BAAA7 /* Build configuration list for PBXNativeTarget "IGLDropDownMenuDemoTests" */;
+			buildPhases = (
+				3A29358F19B20673006BAAA7 /* Sources */,
+				3A29359019B20673006BAAA7 /* Frameworks */,
+				3A29359119B20673006BAAA7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A29359919B20673006BAAA7 /* PBXTargetDependency */,
+			);
+			name = IGLDropDownMenuDemoTests;
+			productName = IGLDropDownMenuDemoTests;
+			productReference = 3A29359319B20673006BAAA7 /* IGLDropDownMenuDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A29357019B20673006BAAA7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IGL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Galvin Li";
+				TargetAttributes = {
+					3A29359219B20673006BAAA7 = {
+						TestTargetID = 3A29357719B20673006BAAA7;
+					};
+				};
+			};
+			buildConfigurationList = 3A29357319B20673006BAAA7 /* Build configuration list for PBXProject "IGLDropDownMenuDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3A29356F19B20673006BAAA7;
+			productRefGroup = 3A29357919B20673006BAAA7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A29357719B20673006BAAA7 /* IGLDropDownMenuDemo */,
+				3A29359219B20673006BAAA7 /* IGLDropDownMenuDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A29357619B20673006BAAA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A29358619B20673006BAAA7 /* InfoPlist.strings in Resources */,
+				3A29358E19B20673006BAAA7 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A29359119B20673006BAAA7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A29359F19B20673006BAAA7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A29357419B20673006BAAA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A12B43419B20C9600CC6235 /* IGLDropDownItem.m in Sources */,
+				3A29358819B20673006BAAA7 /* main.m in Sources */,
+				3A29358C19B20673006BAAA7 /* IGLAppDelegate.m in Sources */,
+				3A12B43519B20C9600CC6235 /* IGLDropDownMenu.m in Sources */,
+				3A2935B319B2094A006BAAA7 /* IGLDemoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A29358F19B20673006BAAA7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A2935A119B20673006BAAA7 /* IGLDropDownMenuDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A29359919B20673006BAAA7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A29357719B20673006BAAA7 /* IGLDropDownMenuDemo */;
+			targetProxy = 3A29359819B20673006BAAA7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3A29358419B20673006BAAA7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A29358519B20673006BAAA7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3A29359D19B20673006BAAA7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A29359E19B20673006BAAA7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A2935A219B20673006BAAA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A2935A319B20673006BAAA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A2935A519B20673006BAAA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Prefix.pch";
+				INFOPLIST_FILE = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3A2935A619B20673006BAAA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Prefix.pch";
+				INFOPLIST_FILE = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3A2935A819B20673006BAAA7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IGLDropDownMenuDemo.app/IGLDropDownMenuDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "IGLDropDownMenuDemoTests/IGLDropDownMenuDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3A2935A919B20673006BAAA7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IGLDropDownMenuDemo.app/IGLDropDownMenuDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Prefix.pch";
+				INFOPLIST_FILE = "IGLDropDownMenuDemoTests/IGLDropDownMenuDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A29357319B20673006BAAA7 /* Build configuration list for PBXProject "IGLDropDownMenuDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A2935A219B20673006BAAA7 /* Debug */,
+				3A2935A319B20673006BAAA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A2935A419B20673006BAAA7 /* Build configuration list for PBXNativeTarget "IGLDropDownMenuDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A2935A519B20673006BAAA7 /* Debug */,
+				3A2935A619B20673006BAAA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A2935A719B20673006BAAA7 /* Build configuration list for PBXNativeTarget "IGLDropDownMenuDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A2935A819B20673006BAAA7 /* Debug */,
+				3A2935A919B20673006BAAA7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A29357019B20673006BAAA7 /* Project object */;
+}
