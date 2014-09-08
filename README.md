@@ -1,7 +1,7 @@
 IGLDropDownMenu
 ===============
 
-A drop down menu with pretty animation.
+An iOS drop down menu with pretty animation.
 
 ## Screenshot
 
