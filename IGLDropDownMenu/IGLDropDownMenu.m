@@ -8,6 +8,12 @@
 
 #import "IGLDropDownMenu.h"
 
+#ifdef NSFoundationVersionNumber_iOS_6_1
+#define IOS7_OR_GREATER (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1)
+#else
+#define IOS7_OR_GREATER NO
+#endif
+
 @interface IGLDropDownMenu ()
 
 @property (nonatomic, strong) IGLDropDownItem *menuButton;
@@ -62,6 +68,7 @@
     self.alphaOnFold = -1;
     self.flipWhenToggleView = NO;
     _expanding = NO;
+    self.useSpringAnimation = YES;
     
     self.selectedIndex = -1;
 }
@@ -175,11 +182,24 @@
             // last item move first
             delay += self.itemAnimationDelay * (self.dropDownItems.count - i - 1);
         }
-        [UIView animateWithDuration:self.animationDuration delay:delay options:self.animationOption animations:^{
-            [self setUpExpandItem:item];
-        } completion:^(BOOL finished) {
-            [self updateSelfFrame];
-        }];
+        
+        if (self.shouldUseSpringAnimation && IOS7_OR_GREATER) {
+#if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000)
+            [UIView animateWithDuration:self.animationDuration * 2 delay:delay usingSpringWithDamping:0.5 initialSpringVelocity:2.0 options:self.animationOption animations:^{
+                [self setUpExpandItem:item];
+            } completion:^(BOOL finished) {
+                [self updateSelfFrame];
+            }];
+#endif
+        } else {
+            [UIView animateWithDuration:self.animationDuration delay:delay options:self.animationOption animations:^{
+                [self setUpExpandItem:item];
+            } completion:^(BOOL finished) {
+                [self updateSelfFrame];
+            }];
+        }
+        
+        
     }
     
 }
@@ -202,11 +222,23 @@
             // first item move first
             delay += self.itemAnimationDelay * i;
         }
-        [UIView animateWithDuration:self.animationDuration delay:delay options:self.animationOption animations:^{
-            [self setUpFoldItem:item];
-        } completion:^(BOOL finished) {
-            [self updateSelfFrame];
-        }];
+        
+        if (self.shouldUseSpringAnimation && IOS7_OR_GREATER) {
+#if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000)
+            [UIView animateWithDuration:self.animationDuration delay:delay usingSpringWithDamping:1.0 initialSpringVelocity:2.0 options:self.animationOption animations:^{
+                [self setUpFoldItem:item];
+            } completion:^(BOOL finished) {
+                [self updateSelfFrame];
+            }];
+#endif
+        } else {
+            [UIView animateWithDuration:self.animationDuration delay:delay options:self.animationOption animations:^{
+                [self setUpFoldItem:item];
+            } completion:^(BOOL finished) {
+                [self updateSelfFrame];
+            }];
+        }
+        
     }
 }
 

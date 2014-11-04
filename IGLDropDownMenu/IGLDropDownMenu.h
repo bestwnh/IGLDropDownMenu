@@ -51,6 +51,7 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuType) {
 @property (nonatomic, assign) CGFloat alphaOnFold;
 @property (nonatomic, assign, getter = isExpanding) BOOL expanding;
 @property (nonatomic, assign, getter = shouldFlipWhenToggleView) BOOL flipWhenToggleView;
+@property (nonatomic, assign, getter = shouldUseSpringAnimation) BOOL useSpringAnimation;
 
 @property (nonatomic, assign) id<IGLDropDownMenuDelegate> delegate;
 
