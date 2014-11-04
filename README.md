@@ -72,6 +72,7 @@ These are just some of the parameters you can use, you can find more(or make mor
 - `gutterY` set the Y gutter between items
 - `alphaOnFold` set the item alpha value when menu on fold, only use this when the style won't fit your mind
 - `flipWhenToggleView` when you set this to true, the menu button will flip up when you click
+- `useSpringAnimation` use the spring animation for iOS7 or higher version, default is true
 
 ####*For `IGLDropDownItem`*
 
@@ -82,13 +83,13 @@ Remember the `menuButton` in `IGLDropDownMenu` is also an `IGLDropDownItem`.
 
 ## Requirements
 
-- iOS 6.0 (I never test the version below 6.0, maybe you can make some try and tell me.)
+- target platform: >=iOS 6.0 (I never test the version below 6.0, maybe you can make some try and tell me.)
 - ARC
 
 ## TODO
 
 1. make `IGLDropDownItem` more customizable
-2. add the dumping animation for iOS 7 or higher version
+2. ~~add the spring animation for iOS 7 or higher version~~
 3. add more animation effect for the menu
 4. just contact me and tell me more
 
