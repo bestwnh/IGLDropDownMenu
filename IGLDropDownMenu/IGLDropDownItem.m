@@ -81,7 +81,7 @@
     if (self.iconImage) {
         [self.textLabel setFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame), 0, selfWidth - CGRectGetMaxX(self.iconImageView.frame), selfHeight)];
     } else {
-        [self.textLabel setFrame:CGRectMake(self.paddingLeft, 0, selfWidth - CGRectGetMaxX(self.iconImageView.frame), selfHeight)];
+        [self.textLabel setFrame:CGRectMake(self.paddingLeft, 0, selfWidth, selfHeight)];
     }
 }
 
