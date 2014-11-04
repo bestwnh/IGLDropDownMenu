@@ -14,7 +14,7 @@ An iOS drop down menu with pretty animation.
 ### Sample Code
 
 1. Create your `IGLDropDownItem` array and set up
-    ```
+    ```objc
     NSMutableArray *dropdownItems = [[NSMutableArray alloc] init];
     IGLDropDownItem *item = [[IGLDropDownItem alloc] init];
     [item setIconImage:[UIImage imageNamed:@"icon.png"]];
@@ -23,7 +23,7 @@ An iOS drop down menu with pretty animation.
     ```
     
 2. Create your `IGLDropDownMenu` and set the up the parameter name `dropDownItems`
-    ```
+    ```objc
     IGLDropDownMenu *dropDownMenu = [[IGLDropDownMenu alloc] init];
     [dropDownMenu setFrame:CGRectMake(0, 0, 200, 45)];
     dropDownMenu.menuText = @"Choose Weather";
@@ -32,7 +32,7 @@ An iOS drop down menu with pretty animation.
     ```
 
 3. modify the params of `IGLDropDownMenu`
-    ```
+    ```objc
     dropDownMenu.type = IGLDropDownMenuTypeStack;
     dropDownMenu.gutterY = 5;
     dropDownMenu.itemAnimationDelay = 0.1;
@@ -40,7 +40,7 @@ An iOS drop down menu with pretty animation.
     ```
 
 4. Call the `reloadView` method (Very Important!)
-    ```
+    ```objc
     // every time you change the params you should call reloadView method
     [dropDownMenu reloadView];
     ```
