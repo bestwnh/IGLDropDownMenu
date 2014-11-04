@@ -98,4 +98,16 @@
     self.textLabel.text = self.text;
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    IGLDropDownItem *itemCopy = [[IGLDropDownItem alloc] init];
+    
+    itemCopy.index = _index;
+    itemCopy.iconImage = _iconImage;
+    itemCopy.text = _text;
+    itemCopy.paddingLeft = _paddingLeft;
+    
+    return itemCopy;
+}
+
 @end

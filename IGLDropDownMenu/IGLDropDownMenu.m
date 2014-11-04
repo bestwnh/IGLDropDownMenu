@@ -75,6 +75,8 @@
 
 - (void)reloadView
 {
+    self.dropDownItems = [[NSArray alloc] initWithArray:self.dropDownItems copyItems:YES];
+    
     if (self.isExpanding) {
         self.frame = self.oldFrame;
     } else {

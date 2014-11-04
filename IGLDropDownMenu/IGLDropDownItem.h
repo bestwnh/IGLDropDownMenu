@@ -18,4 +18,6 @@
 
 @property (nonatomic, assign) CGFloat paddingLeft;
 
+- (id)copyWithZone:(NSZone *)zone;
+
 @end
