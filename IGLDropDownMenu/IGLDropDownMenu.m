@@ -20,6 +20,7 @@
 @property (nonatomic, assign) CGFloat offsetX;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, assign) CGRect oldFrame;
+@property (nonatomic, copy) void (^selectedItemChangeBlock)(NSInteger selectedIndex);
 
 @end
 
@@ -365,6 +366,11 @@
     return CGAffineTransformMakeRotation(angle);
 }
 
+- (void)addSelectedItemChangeBlock:(void (^)(NSInteger))block
+{
+    self.selectedItemChangeBlock = block;
+}
+
 #pragma mark - button action
 
 - (void)itemClicked:(IGLDropDownItem*)sender
@@ -374,6 +380,9 @@
         self.menuButton.text = sender.text;
         self.expanding = NO;
         self.selectedIndex = sender.index;
+        if (self.selectedItemChangeBlock) {
+            self.selectedItemChangeBlock(self.selectedIndex);
+        }
         if ([self.delegate respondsToSelector:@selector(dropDownMenu:selectedItemAtIndex:)]) {
             [self.delegate dropDownMenu:self selectedItemAtIndex:self.selectedIndex];
         }

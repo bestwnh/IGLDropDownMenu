@@ -56,8 +56,9 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuType) {
 
 @property (nonatomic, assign) id<IGLDropDownMenuDelegate> delegate;
 
-
 - (void)reloadView;
 - (void)resetParams;
+- (void)addSelectedItemChangeBlock:(void (^)(NSInteger selectedIndex))block;
+
 
 @end

@@ -61,6 +61,16 @@
     [self.dropDownMenu setFrame:CGRectMake(60, 100, 200, 45)];
     self.dropDownMenu.delegate = self;
     
+    // You can use block instead of delegate if you want
+    /*
+    __weak typeof(self) weakSelf = self;
+    [self.dropDownMenu addSelectedItemChangeBlock:^(NSInteger selectedIndex) {
+        __strong typeof(self) strongSelf = weakSelf;
+        IGLDropDownItem *item = strongSelf.dropDownMenu.dropDownItems[selectedIndex];
+        strongSelf.textLabel.text = [NSString stringWithFormat:@"Selected: %@", item.text];
+    }];
+    */
+    
     [self setUpParamsForDemo1];
     
     [self.dropDownMenu reloadView];
