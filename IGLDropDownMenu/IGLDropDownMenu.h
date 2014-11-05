@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "IGLDropDownItem.h"
+@class IGLDropDownMenu;
 
 typedef NS_ENUM(NSUInteger, IGLDropDownMenuRotate) {
     IGLDropDownMenuRotateNone,
@@ -26,7 +27,7 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuType) {
 
 @protocol IGLDropDownMenuDelegate <NSObject>
 
-- (void)selectedItemAtIndex:(NSInteger)index;
+- (void)dropDownMenu:(IGLDropDownMenu*)dropDownMenu selectedItemAtIndex:(NSInteger)index;
 
 @end
 

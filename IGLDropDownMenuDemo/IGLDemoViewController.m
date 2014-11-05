@@ -153,9 +153,9 @@
 
 #pragma mark - IGLDropDownMenuDelegate
 
-- (void)selectedItemAtIndex:(NSInteger)index
+- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu selectedItemAtIndex:(NSInteger)index
 {
-    IGLDropDownItem *item = self.dropDownMenu.dropDownItems[index];
+    IGLDropDownItem *item = dropDownMenu.dropDownItems[index];
     self.textLabel.text = [NSString stringWithFormat:@"Selected: %@", item.text];
 }
 

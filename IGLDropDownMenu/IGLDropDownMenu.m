@@ -374,8 +374,8 @@
         self.menuButton.text = sender.text;
         self.expanding = NO;
         self.selectedIndex = sender.index;
-        if ([self.delegate respondsToSelector:@selector(selectedItemAtIndex:)]) {
-            [self.delegate selectedItemAtIndex:self.selectedIndex];
+        if ([self.delegate respondsToSelector:@selector(dropDownMenu:selectedItemAtIndex:)]) {
+            [self.delegate dropDownMenu:self selectedItemAtIndex:self.selectedIndex];
         }
     }
 }
