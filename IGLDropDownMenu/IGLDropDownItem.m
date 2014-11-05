@@ -92,6 +92,11 @@
     [self updateLayout];
 }
 
+- (void)setObject:(id)object
+{
+    _object = object;
+}
+
 - (void)setText:(NSString *)text
 {
     _text = text;
@@ -104,6 +109,7 @@
     
     itemCopy.index = _index;
     itemCopy.iconImage = _iconImage;
+    itemCopy.object = _object;
     itemCopy.text = _text;
     itemCopy.paddingLeft = _paddingLeft;
     

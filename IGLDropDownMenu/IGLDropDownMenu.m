@@ -374,6 +374,7 @@
     if (self.isExpanding) {
         self.menuButton.iconImage = sender.iconImage;
         self.menuText = sender.text;
+        self.object = sender.object;
         self.menuButton.text = sender.text;
         self.expanding = NO;
         self.selectedIndex = sender.index;
