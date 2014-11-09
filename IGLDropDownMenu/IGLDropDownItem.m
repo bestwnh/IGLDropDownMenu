@@ -81,7 +81,7 @@
     if (self.iconImage) {
         [self.textLabel setFrame:CGRectMake(CGRectGetMaxX(self.iconImageView.frame), 0, selfWidth - CGRectGetMaxX(self.iconImageView.frame), selfHeight)];
     } else {
-        [self.textLabel setFrame:CGRectMake(self.paddingLeft, 0, selfWidth - CGRectGetMaxX(self.iconImageView.frame), selfHeight)];
+        [self.textLabel setFrame:CGRectMake(self.paddingLeft, 0, selfWidth, selfHeight)];
     }
 }
 
@@ -92,10 +92,28 @@
     [self updateLayout];
 }
 
+- (void)setObject:(id)object
+{
+    _object = object;
+}
+
 - (void)setText:(NSString *)text
 {
     _text = text;
     self.textLabel.text = self.text;
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    IGLDropDownItem *itemCopy = [[IGLDropDownItem alloc] init];
+    
+    itemCopy.index = _index;
+    itemCopy.iconImage = _iconImage;
+    itemCopy.object = _object;
+    itemCopy.text = _text;
+    itemCopy.paddingLeft = _paddingLeft;
+    
+    return itemCopy;
 }
 
 @end

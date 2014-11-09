@@ -76,6 +76,8 @@
 
 - (void)reloadView
 {
+    self.dropDownItems = [[NSArray alloc] initWithArray:self.dropDownItems copyItems:YES];
+    
     if (self.isExpanding) {
         self.frame = self.oldFrame;
     } else {
@@ -377,6 +379,7 @@
 {
     if (self.isExpanding) {
         self.menuButton.iconImage = sender.iconImage;
+        self.object = sender.object;
         self.menuButton.text = sender.text;
         self.expanding = NO;
         self.selectedIndex = sender.index;
