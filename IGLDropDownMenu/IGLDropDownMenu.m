@@ -43,6 +43,11 @@
     [self updateView];
 }
 
+- (void)setDropDownItems:(NSArray *)dropDownItems
+{
+    _dropDownItems = [[NSArray alloc] initWithArray:dropDownItems copyItems:YES];
+}
+
 - (CGFloat)alphaOnFold
 {
     if (_alphaOnFold != -1) {
@@ -76,8 +81,6 @@
 
 - (void)reloadView
 {
-    self.dropDownItems = [[NSArray alloc] initWithArray:self.dropDownItems copyItems:YES];
-    
     if (self.isExpanding) {
         self.frame = self.oldFrame;
     } else {
