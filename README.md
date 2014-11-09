@@ -80,6 +80,7 @@ These are just some of the parameters you can use, you can find more(or make mor
 - `text` set the text string for the item
 - `textLabel` for you to adjust the text label style
 - `object` you can store your custom item in this preporty
+
 Remember the `menuButton` in `IGLDropDownMenu` is also an `IGLDropDownItem`.
 
 ## Requirements
