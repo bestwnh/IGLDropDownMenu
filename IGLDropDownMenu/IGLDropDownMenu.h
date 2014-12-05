@@ -59,6 +59,7 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuType) {
 
 - (void)reloadView;
 - (void)resetParams;
+- (void)selectItemAtIndex:(NSUInteger)index;
 - (void)addSelectedItemChangeBlock:(void (^)(NSInteger selectedIndex))block;
 
 

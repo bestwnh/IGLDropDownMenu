@@ -54,6 +54,13 @@
     return 1.0;
 }
 
+- (void)selectItemAtIndex:(NSUInteger)index
+{
+    if (index < self.dropDownItems.count) {
+        [self selectChangeToItem:self.dropDownItems[index]];
+    }
+}
+
 - (void)resetParams
 {
     self.frame = self.oldFrame;
@@ -371,22 +378,27 @@
     self.selectedItemChangeBlock = block;
 }
 
+- (void)selectChangeToItem:(IGLDropDownItem*)item
+{
+    self.menuButton.iconImage = item.iconImage;
+    self.object = item.object;
+    self.menuButton.text = item.text;
+    self.expanding = NO;
+    self.selectedIndex = item.index;
+    if (self.selectedItemChangeBlock) {
+        self.selectedItemChangeBlock(self.selectedIndex);
+    }
+    if ([self.delegate respondsToSelector:@selector(dropDownMenu:selectedItemAtIndex:)]) {
+        [self.delegate dropDownMenu:self selectedItemAtIndex:self.selectedIndex];
+    }
+}
+
 #pragma mark - button action
 
 - (void)itemClicked:(IGLDropDownItem*)sender
 {
     if (self.isExpanding) {
-        self.menuButton.iconImage = sender.iconImage;
-        self.object = sender.object;
-        self.menuButton.text = sender.text;
-        self.expanding = NO;
-        self.selectedIndex = sender.index;
-        if (self.selectedItemChangeBlock) {
-            self.selectedItemChangeBlock(self.selectedIndex);
-        }
-        if ([self.delegate respondsToSelector:@selector(dropDownMenu:selectedItemAtIndex:)]) {
-            [self.delegate dropDownMenu:self selectedItemAtIndex:self.selectedIndex];
-        }
+        [self selectChangeToItem:sender];
     }
 }
 
