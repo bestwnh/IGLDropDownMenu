@@ -55,8 +55,12 @@ These are just some of the parameters you can use, you can find more(or make mor
 - `animationOption` set the UIViewAnimationOptions for the animation
 - `itemAnimationDelay` set the delay(s) before each of item start to animate
 
+- `direction` set the direction when the menu expand
+> - `IGLDropDownMenuDirectionDown` default value, expand downward
+> - `IGLDropDownMenuDirectionUp` expand upward
+
 - `rotate` set the rotate style when the menu on expand
-> - `IGLDropDownMenuRotateNone` default value for no rotate
+> - `IGLDropDownMenuRotateNone` default value, for no rotate
 > - `IGLDropDownMenuRotateLeft` rotate to left on expand
 > - `IGLDropDownMenuRotateRight` rotate to right on expand
 > - `IGLDropDownMenuRotateRandom` rotate random on expand every single time
