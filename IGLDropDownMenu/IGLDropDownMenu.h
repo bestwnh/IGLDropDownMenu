@@ -25,6 +25,11 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuType) {
     IGLDropDownMenuTypeSlidingInFromRight
 };
 
+typedef NS_ENUM(NSUInteger, IGLDropDownMenuDirection) {
+    IGLDropDownMenuDirectionDown,
+    IGLDropDownMenuDirectionUp,
+};
+
 @protocol IGLDropDownMenuDelegate <NSObject>
 
 - (void)dropDownMenu:(IGLDropDownMenu*)dropDownMenu selectedItemAtIndex:(NSInteger)index;
@@ -48,6 +53,7 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuType) {
 @property (nonatomic, assign) CGFloat itemAnimationDelay;
 @property (nonatomic, assign) IGLDropDownMenuRotate rotate;
 @property (nonatomic, assign) IGLDropDownMenuType type;
+@property (nonatomic, assign) IGLDropDownMenuDirection direction;
 @property (nonatomic, assign) CGFloat slidingInOffset;
 @property (nonatomic, assign) CGFloat gutterY;
 @property (nonatomic, assign) CGFloat alphaOnFold;

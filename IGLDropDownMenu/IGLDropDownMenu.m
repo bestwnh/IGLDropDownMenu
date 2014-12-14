@@ -69,6 +69,7 @@
     self.animationDuration = 0.3;
     self.animationOption = UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState;
     self.itemAnimationDelay = 0.0;
+    self.direction = IGLDropDownMenuDirectionDown;
     self.rotate = IGLDropDownMenuRotateNone;
     self.type = IGLDropDownMenuTypeNormal;
     self.slidingInOffset = -1;
@@ -100,22 +101,31 @@
     
     [self setFrame:CGRectMake(self.frame.origin.x - self.offsetX, self.frame.origin.y, self.frame.size.width + self.gutterY, self.frame.size.height)];
     
+    self.menuButton.iconImage = self.menuIconImage;
+    self.menuButton.text = self.menuText;
+    self.menuButton.paddingLeft = self.paddingLeft;
+    [self.menuButton setFrame:CGRectMake(self.offsetX + 0, 0, self.itemSize.width, self.itemSize.height)];
+    switch (self.direction) {
+        case IGLDropDownMenuDirectionDown:
+            self.menuButton.layer.anchorPoint = CGPointMake(0.5, 0);
+            break;
+        case IGLDropDownMenuDirectionUp:
+            self.menuButton.layer.anchorPoint = CGPointMake(0.5, 1);
+            break;
+        default:
+            break;
+    }
+    [self.menuButton addTarget:self action:@selector(toggleView) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.menuButton];
+    
     for (int i = (int)self.dropDownItems.count - 1; i >= 0; i--) {
         IGLDropDownItem *item = self.dropDownItems[i];
         item.index = i;
         item.paddingLeft = self.paddingLeft;
         [item addTarget:self action:@selector(itemClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self setUpFoldItem:item];
-        [self addSubview:item];
+        [self insertSubview:item belowSubview:self.menuButton];
     }
-    
-    self.menuButton.iconImage = self.menuIconImage;
-    self.menuButton.text = self.menuText;
-    self.menuButton.paddingLeft = self.paddingLeft;
-    self.menuButton.layer.anchorPoint = CGPointMake(0.5, 0);
-    [self.menuButton setFrame:CGRectMake(self.offsetX + 0, 0, self.itemSize.width, self.itemSize.height)];
-    [self.menuButton addTarget:self action:@selector(toggleView) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.menuButton];
     
     [self updateSelfFrame];
     
@@ -138,18 +148,50 @@
 
 - (void)updateSelfFrame
 {
+    CGFloat buttonHeight = CGRectGetHeight(self.menuButton.frame);
+    
     CGFloat x = self.frame.origin.x;
-    CGFloat y = self.frame.origin.y;
-    CGFloat height = CGRectGetHeight(self.menuButton.frame);
+    CGFloat y = self.oldFrame.origin.y;
+    CGFloat height = buttonHeight;
     CGFloat width = CGRectGetWidth(self.menuButton.frame);
     if (self.isExpanding) {
         for (IGLDropDownItem *item in self.dropDownItems) {
             if (item.alpha > 0) {
-                height = MAX(height, CGRectGetMaxY(item.frame));
                 width = MAX(width, CGRectGetMaxX(item.frame));
+                switch (self.direction) {
+                    case IGLDropDownMenuDirectionDown:
+                        height = MAX(height, CGRectGetMaxY(item.frame));
+                        break;
+                    case IGLDropDownMenuDirectionUp:
+                        height = MAX(height, -CGRectGetMinY(item.frame));
+                        break;
+                    default:
+                        break;
+                }
+                
             }
         }
     }
+    
+    [self.menuButton setFrame:CGRectMake(self.offsetX + 0, 0, self.itemSize.width, self.itemSize.height)];
+
+    if (self.direction == IGLDropDownMenuDirectionUp) {
+        if (self.isExpanding) {
+            height += buttonHeight;
+        }
+        y -= height;
+        [self.menuButton setFrame:CGRectMake(self.offsetX + 0, height - buttonHeight, self.itemSize.width, self.itemSize.height)];
+        
+        for (IGLDropDownItem *item in self.dropDownItems) {
+            if (self.isExpanding) {
+                item.center = CGPointMake(item.center.x, height - buttonHeight + item.center.y);
+            } else {
+                item.center = CGPointMake(item.center.x, item.center.y - self.frame.size.height + buttonHeight);
+            }
+        }
+        
+    }
+    
     [self setFrame:CGRectMake(x, y, width, height)];
 }
 
@@ -196,14 +238,18 @@
             [UIView animateWithDuration:self.animationDuration * 2 delay:delay usingSpringWithDamping:0.5 initialSpringVelocity:2.0 options:self.animationOption animations:^{
                 [self setUpExpandItem:item];
             } completion:^(BOOL finished) {
-                [self updateSelfFrame];
+                if (i == 0) {
+                    [self updateSelfFrame];
+                }
             }];
 #endif
         } else {
             [UIView animateWithDuration:self.animationDuration delay:delay options:self.animationOption animations:^{
                 [self setUpExpandItem:item];
             } completion:^(BOOL finished) {
-                [self updateSelfFrame];
+                if (i == 0) {
+                    [self updateSelfFrame];
+                }
             }];
         }
         
@@ -236,14 +282,18 @@
             [UIView animateWithDuration:self.animationDuration delay:delay usingSpringWithDamping:1.0 initialSpringVelocity:2.0 options:self.animationOption animations:^{
                 [self setUpFoldItem:item];
             } completion:^(BOOL finished) {
-                [self updateSelfFrame];
+                if (i == 0) {
+                    [self updateSelfFrame];
+                }
             }];
 #endif
         } else {
             [UIView animateWithDuration:self.animationDuration delay:delay options:self.animationOption animations:^{
                 [self setUpFoldItem:item];
             } completion:^(BOOL finished) {
-                [self updateSelfFrame];
+                if (i == 0) {
+                    [self updateSelfFrame];
+                }
             }];
         }
         
@@ -276,10 +326,15 @@
 
 - (void)flipMainButton
 {
+    CGFloat flipAxis = 1;
+    if (self.direction == IGLDropDownMenuDirectionUp) {
+        flipAxis = -1;
+    }
+    
     CABasicAnimation *topAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
     topAnimation.autoreverses = YES;
     topAnimation.duration = 0.2;
-    topAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DPerspect(CATransform3DMakeRotation(M_PI_2/3*2, 1, 0, 0), CGPointMake(0, 0), 400)];
+    topAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DPerspect(CATransform3DMakeRotation(M_PI_2/3*2, flipAxis, 0, 0), CGPointMake(0, 0), 400)];
     [self.menuButton.layer addAnimation:topAnimation forKey:nil];
 }
 
@@ -321,6 +376,17 @@
             break;
     }
     
+    if (self.direction == IGLDropDownMenuDirectionUp) {
+        if (self.isExpanding) {
+            y = -y;
+        } else {
+            CGFloat buttonHeight = CGRectGetHeight(self.menuButton.frame);
+            y = self.frame.size.height - buttonHeight - y;
+            NSLog(@"bHeight: %f, height: %f", buttonHeight, self.frame.size.height);
+        }
+        
+    }
+    
     return CGRectMake(x, y, width, height);
 }
 
@@ -348,6 +414,10 @@
             break;
     }
     
+    if (self.direction == IGLDropDownMenuDirectionUp) {
+        y = -y;
+    }
+    
     return CGRectMake(x, y, width, height);
 }
 
@@ -369,6 +439,9 @@
             break;
         default:
             break;
+    }
+    if (self.direction == IGLDropDownMenuDirectionUp) {
+        angle = -angle;
     }
     return CGAffineTransformMakeRotation(angle);
 }
