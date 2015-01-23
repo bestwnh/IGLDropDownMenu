@@ -159,7 +159,7 @@
     CGFloat buttonHeight = CGRectGetHeight(self.menuButton.frame);
     
     CGFloat x = self.frame.origin.x;
-    CGFloat y = self.oldFrame.origin.y;
+    CGFloat y = self.originalFrame.origin.y;
     CGFloat height = buttonHeight;
     CGFloat width = CGRectGetWidth(self.menuButton.frame);
     if (self.isExpanding) {
@@ -187,7 +187,7 @@
         if (self.isExpanding) {
             height += buttonHeight;
         }
-        y -= height;
+        y -= height - buttonHeight;
         [self.menuButton setFrame:CGRectMake(self.offsetX + 0, height - buttonHeight, self.itemSize.width, self.itemSize.height)];
         
         for (IGLDropDownItem *item in self.dropDownItems) {
