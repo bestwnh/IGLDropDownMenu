@@ -20,6 +20,7 @@
 @property (nonatomic, assign) CGFloat offsetX;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, assign) CGRect oldFrame;
+@property (nonatomic, assign) CGRect originalFrame;
 @property (nonatomic, copy) void (^selectedItemChangeBlock)(NSInteger selectedIndex);
 
 @end
@@ -29,11 +30,18 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    self.originalFrame = frame;
     if (self) {
         [self resetParams];
         self.menuButton = [[IGLDropDownItem alloc] init];
     }
     return self;
+}
+
+- (void)setFrame:(CGRect)frame
+{
+    super.frame = frame;
+    self.originalFrame = frame;
 }
 
 - (void)setExpanding:(BOOL)expanding
@@ -63,7 +71,7 @@
 
 - (void)resetParams
 {
-    self.frame = self.oldFrame;
+    super.frame = self.oldFrame;
     self.offsetX = 0;
     
     self.animationDuration = 0.3;
@@ -85,7 +93,7 @@
 - (void)reloadView
 {
     if (self.isExpanding) {
-        self.frame = self.oldFrame;
+        super.frame = self.oldFrame;
     } else {
         self.oldFrame = self.frame;
     }
@@ -99,7 +107,7 @@
         self.offsetX = self.dropDownItems.count * self.dropDownItems.count * self.itemSize.height / 28;
     }
     
-    [self setFrame:CGRectMake(self.frame.origin.x - self.offsetX, self.frame.origin.y, self.frame.size.width + self.gutterY, self.frame.size.height)];
+    [super setFrame:CGRectMake(self.originalFrame.origin.x - self.offsetX, self.originalFrame.origin.y, self.frame.size.width + self.gutterY, self.frame.size.height)];
     
     self.menuButton.iconImage = self.menuIconImage;
     self.menuButton.text = self.menuText;
@@ -192,7 +200,7 @@
         
     }
     
-    [self setFrame:CGRectMake(x, y, width, height)];
+    [super setFrame:CGRectMake(x, y, width, height)];
 }
 
 - (void)toggleView
