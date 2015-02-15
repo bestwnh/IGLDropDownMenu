@@ -30,12 +30,26 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    self.originalFrame = frame;
     if (self) {
-        [self resetParams];
-        self.menuButton = [[IGLDropDownItem alloc] init];
+        [self commonInit];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit
+{
+    self.originalFrame = self.frame;
+    [self resetParams];
+    self.menuButton = [[IGLDropDownItem alloc] init];
 }
 
 - (void)setFrame:(CGRect)frame

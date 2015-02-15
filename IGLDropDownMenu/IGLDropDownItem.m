@@ -22,11 +22,24 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        _paddingLeft = 5;
-        [self initView];
+        [self commonInit];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit
+{
+    _paddingLeft = 5;
+    [self initView];
 }
 
 - (void)setFrame:(CGRect)frame
