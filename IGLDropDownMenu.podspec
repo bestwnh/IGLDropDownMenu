@@ -7,7 +7,8 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/bestwnh/IGLDropDownMenu'
   s.author   = { 'Galvin Li' => 'b02437@gmail.com' }
   s.source   = { :git => 'https://github.com/bestwnh/IGLDropDownMenu.git', :tag => s.version.to_s }
-  s.description = 'An iOS drop down menu with pretty animation and easy to customize.'
+  s.description = 'IGLDropDownMenu is a drop down menu that with pretty animation.' \
+                  'It has multi styles and properties to customize your own menu.'
   s.frameworks   = 'UIKit'
   s.source_files = 'IGLDropDownMenu/*.{h,m}'
   s.requires_arc = true
