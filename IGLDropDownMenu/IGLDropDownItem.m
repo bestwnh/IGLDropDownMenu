@@ -16,6 +16,8 @@
 
 @end
 
+BOOL dropShadow;
+
 @implementation IGLDropDownItem
 
 - (id)initWithFrame:(CGRect)frame
@@ -26,6 +28,18 @@
     }
     return self;
 }
+
+
+-(id) initWithDropShadow:(BOOL) useDropShadow {
+    
+    self = [super init];
+    if (self) {
+        dropShadow = useDropShadow;
+        [self commonInit];
+    }
+    return self;
+}
+
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -57,7 +71,7 @@
     self.bgView.userInteractionEnabled = NO;
     self.bgView.backgroundColor = [UIColor whiteColor];
     
-    if(self.dropShadow) {
+    if(dropShadow) {
         self.bgView.layer.shadowColor = [UIColor grayColor].CGColor;
         self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
         self.bgView.layer.shadowOpacity = 0.2;
