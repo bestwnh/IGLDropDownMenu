@@ -56,9 +56,13 @@
     self.bgView = [[UIView alloc] init];
     self.bgView.userInteractionEnabled = NO;
     self.bgView.backgroundColor = [UIColor whiteColor];
-    self.bgView.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.bgView.layer.shadowOpacity = 0.2;
+    
+    if(self.dropShadow) {
+        self.bgView.layer.shadowColor = [UIColor grayColor].CGColor;
+        self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
+        self.bgView.layer.shadowOpacity = 0.2;
+    }
+    
     self.bgView.layer.shouldRasterize = YES;
     [self.bgView setFrame:self.bounds];
     [self addSubview:self.bgView];

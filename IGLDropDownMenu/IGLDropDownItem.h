@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UIImage *iconImage;
 @property (nonatomic, strong) id object;
 @property (nonatomic, copy) NSString *text;
+@property (nonatomic, assign) BOOL dropShadow;
 
 @property (nonatomic, strong, readonly) UILabel *textLabel;
 
