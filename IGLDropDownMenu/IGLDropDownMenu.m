@@ -65,6 +65,11 @@
     [self updateView];
 }
 
+- (void)setDropDownItems:(NSArray *)dropDownItems
+{
+    _dropDownItems = [[NSArray alloc] initWithArray:dropDownItems copyItems:YES];
+}
+
 - (CGFloat)alphaOnFold
 {
     if (_alphaOnFold != -1) {
