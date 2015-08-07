@@ -77,7 +77,7 @@ These are just some of the parameters you can use, you can find more(or make mor
 - `alphaOnFold` set the item alpha value when menu on fold, only use this when the style won't fit your mind
 - `flipWhenToggleView` when you set this to true, the menu button will flip up when you click
 - `useSpringAnimation` use the spring animation for iOS7 or higher version, default is true
-- `menuStatic` keeps the menu button static regardless of selected menu item, default is NO
+- `menuButtonStatic` keeps the menu button static regardless of selected menu item, default is NO
 
 ####*For `IGLDropDownItem`*
 
