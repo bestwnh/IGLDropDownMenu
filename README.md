@@ -27,7 +27,7 @@ An iOS drop down menu with pretty animation.
     IGLDropDownMenu *dropDownMenu = [[IGLDropDownMenu alloc] init];
     [dropDownMenu setFrame:CGRectMake(0, 0, 200, 45)];
     dropDownMenu.menuText = @"Choose Weather";
-    dropDownMenu.menuIconImage = [UIImage imageNamed:@"chooserIcon.png"]];
+    dropDownMenu.menuIconImage = [UIImage imageNamed:@"chooserIcon.png"];
     dropDownMenu.paddingLeft = 15;  // padding left for the content of the button
     ```
 
@@ -77,13 +77,14 @@ These are just some of the parameters you can use, you can find more(or make mor
 - `alphaOnFold` set the item alpha value when menu on fold, only use this when the style won't fit your mind
 - `flipWhenToggleView` when you set this to true, the menu button will flip up when you click
 - `useSpringAnimation` use the spring animation for iOS7 or higher version, default is true
+- `menuStatic` keeps the menu button static regardless of selected menu item, default is NO
 
 ####*For `IGLDropDownItem`*
 
 - `iconImage` set the icon image for the item
 - `text` set the text string for the item
 - `textLabel` for you to adjust the text label style
-- `object` you can store your custom item in this preporty
+- `object` you can store your custom item in this property
 
 Remember the `menuButton` in `IGLDropDownMenu` is also an `IGLDropDownItem`.
 
