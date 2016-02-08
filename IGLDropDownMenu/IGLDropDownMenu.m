@@ -171,6 +171,24 @@
             item.paddingLeft = self.paddingLeft;
         }
         [item addTarget:self action:@selector(itemClicked:) forControlEvents:UIControlEventTouchUpInside];
+        switch (self.type) {
+            case IGLDropDownMenuTypeFlipVertical:
+                if (self.direction == IGLDropDownMenuDirectionUp) {
+                    item.layer.anchorPoint = CGPointMake(0.5, 1.0);
+                } else {
+                    item.layer.anchorPoint = CGPointMake(0.5, 0.0);
+                }
+                break;
+            case IGLDropDownMenuTypeFlipFromLeft:
+                item.layer.anchorPoint = CGPointMake(0.0, 0.5);
+                break;
+            case IGLDropDownMenuTypeFlipFromRight:
+                item.layer.anchorPoint = CGPointMake(1.0, 0.5);
+                break;
+            default:
+                item.layer.anchorPoint = CGPointMake(0.5, 0.5);
+                break;
+        }
         [self setUpFoldItem:item];
         [self insertSubview:item belowSubview:self.menuButton];
     }
@@ -182,12 +200,21 @@
 - (BOOL)isSlidingInType
 {
     switch (self.type) {
-        case IGLDropDownMenuTypeNormal:
-        case IGLDropDownMenuTypeStack:
-            return NO;
         case IGLDropDownMenuTypeSlidingInBoth:
         case IGLDropDownMenuTypeSlidingInFromLeft:
         case IGLDropDownMenuTypeSlidingInFromRight:
+            return YES;
+        default:
+            return NO;
+    }
+}
+
+- (BOOL)isFlipType
+{
+    switch (self.type) {
+        case IGLDropDownMenuTypeFlipVertical:
+        case IGLDropDownMenuTypeFlipFromLeft:
+        case IGLDropDownMenuTypeFlipFromRight:
             return YES;
         default:
             return NO;
@@ -273,12 +300,39 @@
         if (self.shouldFlipWhenToggleView) {
             delay += 0.1;
         }
-        if ([self isSlidingInType]) {
+        if (self.type == IGLDropDownMenuTypeFlipVertical) {
+            self.itemAnimationDelay = self.animationDuration;
+        }
+        if ([self isSlidingInType] || [self isFlipType]) {
             // first item move first
             delay += self.itemAnimationDelay * i;
         } else {
             // last item move first
             delay += self.itemAnimationDelay * (self.dropDownItems.count - i - 1);
+        }
+        
+        switch (self.type) {
+            case IGLDropDownMenuTypeFlipVertical: {
+                CGFloat angle = self.direction == IGLDropDownMenuDirectionUp ? M_PI_2 : -M_PI_2;
+                CATransform3D rotate = CATransform3DMakeRotation(angle, 1, 0, 0);
+                item.layer.transform = CATransform3DPerspect(rotate, CGPointMake(0, 0), 200);
+                break;
+            }
+            case IGLDropDownMenuTypeFlipFromLeft: {
+                CATransform3D rotate = CATransform3DMakeRotation(M_PI_2, 0, 1, 0);
+                item.layer.transform = CATransform3DPerspect(rotate, CGPointMake(0, 0), 200);
+                break;
+            }
+            case IGLDropDownMenuTypeFlipFromRight: {
+                CATransform3D rotate = CATransform3DMakeRotation(-M_PI_2, 0, 1, 0);
+                item.layer.transform = CATransform3DPerspect(rotate, CGPointMake(0, 0), 200);
+                break;
+            }
+            default:
+                break;
+        }
+        if ([self isFlipType]) {
+            self.animationOption &= ~UIViewAnimationOptionBeginFromCurrentState;
         }
         
         if (self.shouldUseSpringAnimation && IOS7_OR_GREATER) {
@@ -317,7 +371,10 @@
         if (self.shouldFlipWhenToggleView) {
             delay += 0.1;
         }
-        if ([self isSlidingInType]) {
+        if (self.type == IGLDropDownMenuTypeFlipVertical) {
+            self.itemAnimationDelay = self.animationDuration;
+        }
+        if ([self isSlidingInType] || [self isFlipType]) {
             // last item move first
             delay += self.itemAnimationDelay * (self.dropDownItems.count - i - 1);
         } else {
@@ -325,6 +382,9 @@
             delay += self.itemAnimationDelay * i;
         }
         
+        if ([self isFlipType]) {
+            self.animationOption &= ~UIViewAnimationOptionBeginFromCurrentState;
+        }
         if (self.shouldUseSpringAnimation && IOS7_OR_GREATER) {
 #if (defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000)
             [UIView animateWithDuration:self.animationDuration delay:delay usingSpringWithDamping:1.0 initialSpringVelocity:2.0 options:self.animationOption animations:^{
@@ -356,14 +416,39 @@
     // set frame (MUST before rotation reset)
     [item setFrame:[self frameOnExpandForItemAtIndex:item.index]];
     
-    // set rotate
-    item.transform = [self transformOnExpandForItemAtIndex:item.index];
+    if ([self isFlipType]) {
+        item.layer.transform = CATransform3DIdentity;
+    } else {
+        // set rotate
+        item.transform = [self transformOnExpandForItemAtIndex:item.index];
+    }
 }
 
 - (void)setUpFoldItem:(IGLDropDownItem*)item
 {
-    // reset rotate
-    item.transform = CGAffineTransformMakeRotation(0);
+    switch (self.type) {
+        case IGLDropDownMenuTypeFlipVertical: {
+            CGFloat angle = self.direction == IGLDropDownMenuDirectionUp ? M_PI_2 : -M_PI_2;
+            CATransform3D rotate = CATransform3DMakeRotation(angle, 1, 0, 0);
+            item.layer.transform = CATransform3DPerspect(rotate, CGPointMake(0, 0), 200);
+            break;
+        }
+        case IGLDropDownMenuTypeFlipFromLeft: {
+            CATransform3D rotate = CATransform3DMakeRotation(M_PI_2, 0, 1, 0);
+            item.layer.transform = CATransform3DPerspect(rotate, CGPointMake(0, 0), 200);
+            break;
+        }
+        case IGLDropDownMenuTypeFlipFromRight: {
+            CATransform3D rotate = CATransform3DMakeRotation(-M_PI_2, 0, 1, 0);
+            item.layer.transform = CATransform3DPerspect(rotate, CGPointMake(0, 0), 200);
+            break;
+        }
+        default: {
+            // reset rotate
+            item.transform = CGAffineTransformMakeRotation(0);
+            break;
+        }
+    }
     
     // set frame (MUST after rotation reset)
     [item setFrame:[self frameOnFoldForItemAtIndex:item.index]];
@@ -420,6 +505,11 @@
             x = slidingInOffect;
             y = (index + 1) * (height + self.gutterY);
             break;
+        case IGLDropDownMenuTypeFlipVertical:
+        case IGLDropDownMenuTypeFlipFromLeft:
+        case IGLDropDownMenuTypeFlipFromRight:
+            x = 0;
+            y = (index + 1) * (height + self.gutterY);
         default:
             break;
     }

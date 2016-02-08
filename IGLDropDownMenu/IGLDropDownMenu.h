@@ -22,7 +22,10 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuType) {
     IGLDropDownMenuTypeStack,
     IGLDropDownMenuTypeSlidingInBoth,
     IGLDropDownMenuTypeSlidingInFromLeft,
-    IGLDropDownMenuTypeSlidingInFromRight
+    IGLDropDownMenuTypeSlidingInFromRight,
+    IGLDropDownMenuTypeFlipVertical,
+    IGLDropDownMenuTypeFlipFromLeft,
+    IGLDropDownMenuTypeFlipFromRight
 };
 
 typedef NS_ENUM(NSUInteger, IGLDropDownMenuDirection) {

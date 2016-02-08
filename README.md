@@ -71,6 +71,9 @@ These are just some of the parameters you can use, you can find more(or make mor
 > - `IGLDropDownMenuTypeSlidingInBoth` item will slide in and out from both sides
 > - `IGLDropDownMenuTypeSlidingInFromLeft` item will slide in from left
 > - `IGLDropDownMenuTypeSlidingInFromRight` item will slide in from right
+> - `IGLDropDownMenuTypeFlipVertical` item will flip vertical
+> - `IGLDropDownMenuTypeFlipFromLeft` item will flip from left
+> - `IGLDropDownMenuTypeFlipFromRight` item will flip from right
 
 - `slidingInOffset` set the offset value for the items slide in and out
 - `gutterY` set the Y gutter between items
@@ -107,13 +110,6 @@ If you use customView, the customView will auto set `userInteractionEnabled = NO
 
 - target platform: >=iOS 6.0 (I never test the version below 6.0, maybe you can make some try and tell me.)
 - ARC
-
-## TODO
-
-1. make `IGLDropDownItem` more customizable
-2. ~~add the spring animation for iOS 7 or higher version~~
-3. add more animation effect for the menu
-4. just contact me and tell me more
 
 ## Thanks
 

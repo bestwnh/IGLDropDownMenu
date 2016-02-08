@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UILabel *textLabel;
 @property (nonatomic, copy) NSArray *dataArray;
 @property (nonatomic, strong) UISegmentedControl *segmentControl;
+@property (nonatomic, assign) IGLDropDownMenuDirection direction;
 
 @property (nonatomic, strong) IGLDropDownMenu *defaultDropDownMenu;
 @property (nonatomic, strong) IGLDropDownMenu *customeViewDropDownMenu;
@@ -30,6 +31,7 @@
     if (self) {
         // Custom initialization
         self.view.backgroundColor = [UIColor colorWithRed:0.89 green:0.89 blue:0.89 alpha:1.0];
+        self.direction = IGLDropDownMenuDirectionDown;
     }
     return self;
 }
@@ -39,7 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Demo1",@"Demo2",@"Demo3",@"Demo4",@"Demo5",@"Demo6"]];
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"D1",@"D2",@"D3",@"D4",@"D5",@"D6",@"D7",@"D8",@"D9"]];
     [segmentedControl setFrame:CGRectMake(10, 25, 300, 30)];
     [segmentedControl addTarget:self action:@selector(segmentChanged:) forControlEvents:UIControlEventValueChanged];
     [segmentedControl setSelectedSegmentIndex:0];
@@ -47,10 +49,16 @@
     self.segmentControl = segmentedControl;
     
     UISegmentedControl *segmentedControl2 = [[UISegmentedControl alloc] initWithItems:@[@"Default",@"CustomView",]];
-    [segmentedControl2 setFrame:CGRectMake(10, 65, 300, 30)];
+    [segmentedControl2 setFrame:CGRectMake(10, 65, 165, 30)];
     [segmentedControl2 addTarget:self action:@selector(segment2Changed:) forControlEvents:UIControlEventValueChanged];
     [segmentedControl2 setSelectedSegmentIndex:0];
     [self.view addSubview:segmentedControl2];
+    
+    UISegmentedControl *segmentedControl3 = [[UISegmentedControl alloc] initWithItems:@[@"Down",@"Up",]];
+    [segmentedControl3 setFrame:CGRectMake(185, 65, 125, 30)];
+    [segmentedControl3 addTarget:self action:@selector(segment3Changed:) forControlEvents:UIControlEventValueChanged];
+    [segmentedControl3 setSelectedSegmentIndex:0];
+    [self.view addSubview:segmentedControl3];
     
     self.dataArray = @[@{@"image":[UIImage imageNamed:@"sun.png"],@"title":@"Sun"},
                        @{@"image":[UIImage imageNamed:@"clouds.png"],@"title":@"Clouds"},
@@ -147,6 +155,19 @@
 - (void)setUpParameWithSegmentControlIndex:(NSInteger)index
 {
     [self.dropDownMenu resetParams];
+    self.dropDownMenu.direction = self.direction;
+    
+    CGFloat x = CGRectGetMinX(self.dropDownMenu.frame);
+    CGFloat width = CGRectGetWidth(self.dropDownMenu.frame);
+    CGFloat height = CGRectGetHeight(self.dropDownMenu.frame);
+    CGFloat y;
+    if (self.direction == IGLDropDownMenuDirectionUp) {
+        y = 420;
+    } else {
+        y = 140;
+    }
+    self.dropDownMenu.frame = CGRectMake(x, y, width, height);
+
     switch (index) {
         case 0:
             // Demo 1
@@ -172,6 +193,18 @@
             // Demo 6
             [self setUpParamsForDemo6];
             break;
+        case 6:
+            // Demo 7
+            [self setUpParamsForDemo7];
+            break;
+        case 7:
+            // Demo 8
+            [self setUpParamsForDemo8];
+            break;
+        case 8:
+            // Demo 9
+            [self setUpParamsForDemo9];
+            break;
         default:
             break;
     }
@@ -193,6 +226,15 @@
     self.textLabel.text = @"No Selected.";
     [self.dropDownMenu reloadView];
 
+}
+
+- (void)segment3Changed:(UISegmentedControl*)segment
+{
+    NSInteger index = segment.selectedSegmentIndex;
+    self.direction = index == 1 ? IGLDropDownMenuDirectionUp : IGLDropDownMenuDirectionDown;
+    [self setUpParameWithSegmentControlIndex:self.segmentControl.selectedSegmentIndex];
+    self.textLabel.text = @"No Selected.";
+    [self.dropDownMenu reloadView];
 }
 
 - (void)setUpParamsForDemo1
@@ -233,6 +275,29 @@
 {
     self.dropDownMenu.gutterY = 5;
     self.dropDownMenu.type = IGLDropDownMenuTypeSlidingInBoth;
+    self.dropDownMenu.itemAnimationDelay = 0.1;
+}
+
+- (void)setUpParamsForDemo7
+{
+    self.dropDownMenu.gutterY = 0;
+    self.dropDownMenu.type = IGLDropDownMenuTypeFlipVertical;
+    self.dropDownMenu.animationDuration = 0.2;
+}
+
+- (void)setUpParamsForDemo8
+{
+    self.dropDownMenu.gutterY = 0;
+    self.dropDownMenu.type = IGLDropDownMenuTypeFlipFromLeft;
+    self.dropDownMenu.animationDuration = 0.4;
+    self.dropDownMenu.itemAnimationDelay = 0.1;
+}
+
+- (void)setUpParamsForDemo9
+{
+    self.dropDownMenu.gutterY = 0;
+    self.dropDownMenu.type = IGLDropDownMenuTypeFlipFromRight;
+    self.dropDownMenu.animationDuration = 0.4;
     self.dropDownMenu.itemAnimationDelay = 0.1;
 }
 
