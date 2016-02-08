@@ -59,6 +59,7 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuDirection) {
 @property (nonatomic, assign) CGFloat slidingInOffset;
 @property (nonatomic, assign) CGFloat gutterY;
 @property (nonatomic, assign) CGFloat alphaOnFold;
+@property (nonatomic, assign, getter = isMenuButtonStatic) BOOL menuButtonStatic;
 @property (nonatomic, assign, getter = isExpanding) BOOL expanding;
 @property (nonatomic, assign, getter = shouldFlipWhenToggleView) BOOL flipWhenToggleView;
 @property (nonatomic, assign, getter = shouldUseSpringAnimation) BOOL useSpringAnimation;

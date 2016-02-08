@@ -108,6 +108,7 @@
     self.flipWhenToggleView = NO;
     _expanding = NO;
     self.useSpringAnimation = YES;
+    self.menuButtonStatic = NO;
     
     self.selectedIndex = -1;
 }
@@ -483,9 +484,11 @@
 
 - (void)selectChangeToItem:(IGLDropDownItem*)item
 {
-    self.menuButton.iconImage = item.iconImage;
+    if (![self isMenuButtonStatic]) {
+        self.menuButton.iconImage = item.iconImage;
+        self.menuButton.text = item.text;
+    }
     self.object = item.object;
-    self.menuButton.text = item.text;
     self.expanding = NO;
     self.selectedIndex = item.index;
     if (self.selectedItemChangeBlock) {
