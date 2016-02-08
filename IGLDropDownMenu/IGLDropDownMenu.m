@@ -62,6 +62,9 @@
 {
     _expanding = expanding;
     
+    if ([self.delegate respondsToSelector:@selector(dropDownMenu:expandingChanged:)]) {
+        [self.delegate dropDownMenu:self expandingChanged:self.expanding];
+    }
     [self updateView];
 }
 

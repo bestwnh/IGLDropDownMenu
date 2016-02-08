@@ -169,6 +169,11 @@
     self.textLabel.text = [NSString stringWithFormat:@"Selected: %@", item.text];
 }
 
+- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpending
+{
+    NSLog(@"Expending changed to: %@", isExpending? @"expand" : @"fold");
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
