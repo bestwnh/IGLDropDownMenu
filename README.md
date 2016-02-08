@@ -88,6 +88,12 @@ These are just some of the parameters you can use, you can find more(or make mor
 
 Remember the `menuButton` in `IGLDropDownMenu` is also an `IGLDropDownItem`.
 
+### Delegate
+
+####*For `IGLDropDownMenu`*
+`- (void)dropDownMenu:(IGLDropDownMenu*)dropDownMenu selectedItemAtIndex:(NSInteger)index;`
+`- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpending;`
+
 ## Requirements
 
 - target platform: >=iOS 6.0 (I never test the version below 6.0, maybe you can make some try and tell me.)
