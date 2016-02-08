@@ -19,6 +19,8 @@
 
 @property (nonatomic, assign) CGFloat paddingLeft;
 
+
+-(id) initWithDropShadow:(BOOL) useDropShadow;
 - (id)copyWithZone:(NSZone *)zone;
 
 @end

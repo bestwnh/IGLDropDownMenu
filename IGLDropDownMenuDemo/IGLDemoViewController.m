@@ -48,7 +48,7 @@
     for (int i = 0; i < dataArray.count; i++) {
         NSDictionary *dict = dataArray[i];
         
-        IGLDropDownItem *item = [[IGLDropDownItem alloc] init];
+        IGLDropDownItem *item = [[IGLDropDownItem alloc] initWithDropShadow:YES];
         [item setIconImage:[UIImage imageNamed:dict[@"image"]]];
         [item setText:dict[@"title"]];
         [dropdownItems addObject:item];
