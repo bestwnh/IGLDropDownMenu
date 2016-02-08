@@ -9,6 +9,12 @@ An iOS drop down menu with pretty animation.
 
 ## How To Use
 
+#### Use CocoaPods:
+pod 'IGLDropDownMenu'
+
+#### Manual Install:
+Just drap the files in folder IGLDropDownMenu to your project.
+
 ####*!Try the demo. It's really helpful!*
 
 ### Sample Code
