@@ -91,8 +91,8 @@ Remember the `menuButton` in `IGLDropDownMenu` is also an `IGLDropDownItem`.
 ### Delegate
 
 ####*For `IGLDropDownMenu`*
-`- (void)dropDownMenu:(IGLDropDownMenu*)dropDownMenu selectedItemAtIndex:(NSInteger)index;`
-`- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpending;`
+- `- (void)dropDownMenu:(IGLDropDownMenu*)dropDownMenu selectedItemAtIndex:(NSInteger)index;`
+- `- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpending;`
 
 ## Requirements
 
