@@ -17,6 +17,9 @@
 
 @property (nonatomic, strong, readonly) UILabel *textLabel;
 
+@property (nonatomic, assign) BOOL showBackgroundShadow;
+@property (nonatomic, strong) UIColor *backgroundColor;
+
 @property (nonatomic, assign) CGFloat paddingLeft;
 
 - (id)copyWithZone:(NSZone *)zone;

@@ -39,6 +39,8 @@
 - (void)commonInit
 {
     _paddingLeft = 5;
+    _showBackgroundShadow = YES;
+    _backgroundColor = [UIColor whiteColor];
     [self initView];
 }
 
@@ -55,14 +57,12 @@
 {
     self.bgView = [[UIView alloc] init];
     self.bgView.userInteractionEnabled = NO;
-    self.bgView.backgroundColor = [UIColor whiteColor];
-    self.bgView.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.bgView.layer.shadowOpacity = 0.2;
     self.bgView.layer.shouldRasterize = YES;
     [self.bgView setFrame:self.bounds];
     [self addSubview:self.bgView];
-    
+    self.bgView.backgroundColor = self.backgroundColor;
+    self.showBackgroundShadow = _showBackgroundShadow;
+
     self.iconImageView = [[UIImageView alloc] init];
     self.iconImageView.contentMode = UIViewContentModeCenter;
     [self addSubview:self.iconImageView];
@@ -82,6 +82,24 @@
     [self.iconImageView setImage:self.iconImage];
     
     [self updateLayout];
+}
+
+- (void)setShowBackgroundShadow:(BOOL)showBackgroundShadow
+{
+    _showBackgroundShadow = showBackgroundShadow;
+    if (self.showBackgroundShadow) {
+        self.bgView.layer.shadowColor = [UIColor grayColor].CGColor;
+        self.bgView.layer.shadowOffset = CGSizeMake(0, 0);
+        self.bgView.layer.shadowOpacity = 0.2;
+    } else {
+        self.bgView.layer.shadowOpacity = 0.0;
+    }
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    _backgroundColor = backgroundColor;
+    self.bgView.backgroundColor = self.backgroundColor;
 }
 
 - (void)updateLayout
@@ -125,6 +143,8 @@
     itemCopy.object = _object;
     itemCopy.text = _text;
     itemCopy.paddingLeft = _paddingLeft;
+    itemCopy.showBackgroundShadow = _showBackgroundShadow;
+    itemCopy.backgroundColor = _backgroundColor;
     
     return itemCopy;
 }
