@@ -10,6 +10,8 @@
 
 @interface IGLDropDownItem ()
 
+@property (nonatomic, strong) UIView *customView;
+
 @property (nonatomic, strong) UIImageView *iconImageView;
 @property (nonatomic, strong) UIView *bgView;
 @property (nonatomic, strong) UILabel *textLabel;
@@ -36,6 +38,17 @@
     return self;
 }
 
+- (instancetype)initWithCustomView:(UIView *)customView
+{
+    self = [super initWithFrame:CGRectZero];
+    if (self) {
+        [self addSubview:customView];
+        customView.userInteractionEnabled = NO;
+        self.customView = customView;
+    }
+    return self;
+}
+
 - (void)commonInit
 {
     _paddingLeft = 5;
@@ -48,9 +61,13 @@
 {
     [super setFrame:frame];
     
-    [self.bgView setFrame:self.bounds];
+    if (self.customView) {
+        [self.customView setFrame:self.bounds];
+    } else {
+        [self.bgView setFrame:self.bounds];
+        [self updateLayout];
+    }
     
-    [self updateLayout];
 }
 
 - (void)initView
@@ -136,15 +153,21 @@
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    IGLDropDownItem *itemCopy = [[IGLDropDownItem alloc] init];
+    IGLDropDownItem *itemCopy;
+    if (_customView) {
+        itemCopy = [[IGLDropDownItem alloc] initWithCustomView:_customView];
+    } else {
+        itemCopy = [[IGLDropDownItem alloc] init];
+        itemCopy.iconImage = _iconImage;
+        itemCopy.text = _text;
+        itemCopy.paddingLeft = _paddingLeft;
+        itemCopy.showBackgroundShadow = _showBackgroundShadow;
+        itemCopy.backgroundColor = _backgroundColor;
+    }
     
     itemCopy.index = _index;
-    itemCopy.iconImage = _iconImage;
     itemCopy.object = _object;
-    itemCopy.text = _text;
-    itemCopy.paddingLeft = _paddingLeft;
-    itemCopy.showBackgroundShadow = _showBackgroundShadow;
-    itemCopy.backgroundColor = _backgroundColor;
+
     
     return itemCopy;
 }

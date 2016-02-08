@@ -22,6 +22,7 @@
 		3A29359F19B20673006BAAA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A29359D19B20673006BAAA7 /* InfoPlist.strings */; };
 		3A2935A119B20673006BAAA7 /* IGLDropDownMenuDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2935A019B20673006BAAA7 /* IGLDropDownMenuDemoTests.m */; };
 		3A2935B319B2094A006BAAA7 /* IGLDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2935B219B2094A006BAAA7 /* IGLDemoViewController.m */; };
+		3A31D95F1C68762400D29E7F /* IGLDemoCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A31D95E1C68762400D29E7F /* IGLDemoCustomView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		3A2935A019B20673006BAAA7 /* IGLDropDownMenuDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IGLDropDownMenuDemoTests.m; sourceTree = "<group>"; };
 		3A2935B119B2094A006BAAA7 /* IGLDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDemoViewController.h; sourceTree = "<group>"; };
 		3A2935B219B2094A006BAAA7 /* IGLDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDemoViewController.m; sourceTree = "<group>"; };
+		3A31D95D1C68762400D29E7F /* IGLDemoCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLDemoCustomView.h; sourceTree = "<group>"; };
+		3A31D95E1C68762400D29E7F /* IGLDemoCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLDemoCustomView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				3A29358B19B20673006BAAA7 /* IGLAppDelegate.m */,
 				3A2935B119B2094A006BAAA7 /* IGLDemoViewController.h */,
 				3A2935B219B2094A006BAAA7 /* IGLDemoViewController.m */,
+				3A31D95D1C68762400D29E7F /* IGLDemoCustomView.h */,
+				3A31D95E1C68762400D29E7F /* IGLDemoCustomView.m */,
 				3A12B42F19B20C9600CC6235 /* IGLDropDownMenu */,
 				3A29358D19B20673006BAAA7 /* Images.xcassets */,
 				3A29358219B20673006BAAA7 /* Supporting Files */,
@@ -268,6 +273,7 @@
 				3A29358C19B20673006BAAA7 /* IGLAppDelegate.m in Sources */,
 				3A12B43519B20C9600CC6235 /* IGLDropDownMenu.m in Sources */,
 				3A2935B319B2094A006BAAA7 /* IGLDemoViewController.m in Sources */,
+				3A31D95F1C68762400D29E7F /* IGLDemoCustomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

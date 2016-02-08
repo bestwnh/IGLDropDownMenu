@@ -45,11 +45,23 @@
     return self;
 }
 
+- (instancetype)initWithMenuButtonCustomView:(UIView *)customView
+{
+    self = [super initWithFrame:CGRectZero];
+    if (self) {
+        [self resetParams];
+        self.menuButton = [[IGLDropDownItem alloc] initWithCustomView:customView];
+        self.menuButtonStatic = YES;
+    }
+    return self;
+}
+
 - (void)commonInit
 {
     self.originalFrame = self.frame;
     [self resetParams];
     self.menuButton = [[IGLDropDownItem alloc] init];
+
 }
 
 - (void)setFrame:(CGRect)frame
@@ -132,9 +144,12 @@
     
     [super setFrame:CGRectMake(self.originalFrame.origin.x - self.offsetX, self.originalFrame.origin.y, self.frame.size.width + self.gutterY, self.frame.size.height)];
     
-    self.menuButton.iconImage = self.menuIconImage;
-    self.menuButton.text = self.menuText;
-    self.menuButton.paddingLeft = self.paddingLeft;
+    if (!self.menuButton.customView) {
+        self.menuButton.iconImage = self.menuIconImage;
+        self.menuButton.text = self.menuText;
+        self.menuButton.paddingLeft = self.paddingLeft;
+    }
+    
     [self.menuButton setFrame:CGRectMake(self.offsetX + 0, 0, self.itemSize.width, self.itemSize.height)];
     switch (self.direction) {
         case IGLDropDownMenuDirectionDown:
@@ -152,7 +167,9 @@
     for (int i = (int)self.dropDownItems.count - 1; i >= 0; i--) {
         IGLDropDownItem *item = self.dropDownItems[i];
         item.index = i;
-        item.paddingLeft = self.paddingLeft;
+        if (!item.customView) {
+            item.paddingLeft = self.paddingLeft;
+        }
         [item addTarget:self action:@selector(itemClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self setUpFoldItem:item];
         [self insertSubview:item belowSubview:self.menuButton];
@@ -184,7 +201,7 @@
     CGFloat x = self.frame.origin.x;
     CGFloat y = self.originalFrame.origin.y;
     CGFloat height = buttonHeight;
-    CGFloat width = CGRectGetWidth(self.menuButton.frame);
+    CGFloat width = CGRectGetWidth(self.menuButton.frame) + self.offsetX;
     if (self.isExpanding) {
         for (IGLDropDownItem *item in self.dropDownItems) {
             if (item.alpha > 0) {
@@ -484,7 +501,7 @@
 
 - (void)selectChangeToItem:(IGLDropDownItem*)item
 {
-    if (![self isMenuButtonStatic]) {
+    if (!self.isMenuButtonStatic && !item.customView) {
         self.menuButton.iconImage = item.iconImage;
         self.menuButton.text = item.text;
     }

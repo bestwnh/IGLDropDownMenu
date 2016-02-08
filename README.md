@@ -92,6 +92,11 @@ These are just some of the parameters you can use, you can find more(or make mor
 
 Remember the `menuButton` in `IGLDropDownMenu` is also an `IGLDropDownItem`.
 
+### CustomView
+
+If you want to control the view by yourself, you can use the `initWithMenuButtonCustomView` of `IGLDropDownMenu` and `initWithCustomView` of `IGLDropDownItem`.
+If you use customView, the customView will auto set `userInteractionEnabled = NO` and the menu `menuButtonStatic = YES` and some style parameters will be invalid. You need to handle it yourself. I make a customView in the demo, try it!
+
 ### Delegate
 
 ####*For `IGLDropDownMenu`*
