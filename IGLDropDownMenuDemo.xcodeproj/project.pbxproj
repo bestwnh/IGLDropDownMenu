@@ -212,7 +212,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = IGL;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Galvin Li";
 				TargetAttributes = {
 					3A29359219B20673006BAAA7 = {
@@ -327,6 +327,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -389,6 +390,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Prefix.pch";
 				INFOPLIST_FILE = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iceberg.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -402,6 +404,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Prefix.pch";
 				INFOPLIST_FILE = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iceberg.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -423,6 +426,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "IGLDropDownMenuDemoTests/IGLDropDownMenuDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iceberg.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -441,6 +445,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IGLDropDownMenuDemo/IGLDropDownMenuDemo-Prefix.pch";
 				INFOPLIST_FILE = "IGLDropDownMenuDemoTests/IGLDropDownMenuDemoTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iceberg.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
