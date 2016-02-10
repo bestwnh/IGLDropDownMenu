@@ -43,7 +43,7 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuDirection) {
 
 @interface IGLDropDownMenu : UIControl
 
-@property (nonatomic, strong, readonly) IGLDropDownItem *menuButton;
+@property (nonatomic, strong) IGLDropDownItem *menuButton;
 @property (nonatomic, copy) NSString* menuText;
 @property (nonatomic, strong) id object;
 @property (nonatomic, strong) UIImage *menuIconImage;

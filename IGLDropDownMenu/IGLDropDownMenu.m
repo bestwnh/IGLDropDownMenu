@@ -16,7 +16,6 @@
 
 @interface IGLDropDownMenu ()
 
-@property (nonatomic, strong) IGLDropDownItem *menuButton;
 @property (nonatomic, assign) CGFloat offsetX;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, assign) CGRect oldFrame;
