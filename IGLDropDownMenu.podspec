@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'IGLDropDownMenu'
-  s.version  = '1.5.0'
+  s.version  = '1.6.0'
   s.platform = :ios, '6.0'
   s.license  = 'MIT'
   s.summary  = 'An iOS drop down menu with pretty animation and easy to customize.'
