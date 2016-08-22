@@ -151,25 +151,4 @@
     self.textLabel.text = self.text;
 }
 
-- (id)copyWithZone:(NSZone *)zone
-{
-    IGLDropDownItem *itemCopy;
-    if (_customView) {
-        itemCopy = [[IGLDropDownItem alloc] initWithCustomView:_customView];
-    } else {
-        itemCopy = [[IGLDropDownItem alloc] init];
-        itemCopy.iconImage = _iconImage;
-        itemCopy.text = _text;
-        itemCopy.paddingLeft = _paddingLeft;
-        itemCopy.showBackgroundShadow = _showBackgroundShadow;
-        itemCopy.backgroundColor = _backgroundColor;
-    }
-    
-    itemCopy.index = _index;
-    itemCopy.object = _object;
-
-    
-    return itemCopy;
-}
-
 @end
