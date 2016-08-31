@@ -336,6 +336,7 @@
             } completion:^(BOOL finished) {
                 if (i == 0) {
                     [self updateSelfFrame];
+                    [self handleExpandingChangedWithAnimationCompledted];
                 }
             }];
 #endif
@@ -345,6 +346,7 @@
             } completion:^(BOOL finished) {
                 if (i == 0) {
                     [self updateSelfFrame];
+                    [self handleExpandingChangedWithAnimationCompledted];
                 }
             }];
         }
@@ -386,6 +388,7 @@
             } completion:^(BOOL finished) {
                 if (i == 0) {
                     [self updateSelfFrame];
+                    [self handleExpandingChangedWithAnimationCompledted];
                 }
             }];
 #endif
@@ -395,10 +398,18 @@
             } completion:^(BOOL finished) {
                 if (i == 0) {
                     [self updateSelfFrame];
+                    [self handleExpandingChangedWithAnimationCompledted];
                 }
             }];
         }
         
+    }
+}
+
+- (void)handleExpandingChangedWithAnimationCompledted
+{
+    if ([self.delegate respondsToSelector:@selector(dropDownMenu:expandingChangedWithAnimationCompledted:)]) {
+        [self.delegate dropDownMenu:self expandingChangedWithAnimationCompledted:self.isExpanding];
     }
 }
 

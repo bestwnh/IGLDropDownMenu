@@ -315,6 +315,12 @@
 - (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpending
 {
     NSLog(@"Expending changed to: %@", isExpending? @"expand" : @"fold");
+
+}
+
+- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChangedWithAnimationCompledted:(BOOL)isExpending
+{
+    NSLog(@"IGLDropDownMenu size: %@", NSStringFromCGSize(dropDownMenu.bounds.size));
 }
 
 - (void)didReceiveMemoryWarning
