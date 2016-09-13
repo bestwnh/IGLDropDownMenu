@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, IGLDropDownMenuDirection) {
 @property (nonatomic, assign, getter = shouldFlipWhenToggleView) BOOL flipWhenToggleView;
 @property (nonatomic, assign, getter = shouldUseSpringAnimation) BOOL useSpringAnimation;
 
-@property (nonatomic, assign) id<IGLDropDownMenuDelegate> delegate;
+@property (nonatomic, weak) id<IGLDropDownMenuDelegate> delegate;
 
 - (instancetype)initWithMenuButtonCustomView:(UIView*)customView;
 
