@@ -312,13 +312,13 @@
     
 }
 
-- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpending
+- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpanding
 {
-    NSLog(@"Expending changed to: %@", isExpending? @"expand" : @"fold");
+    NSLog(@"Expending changed to: %@", isExpanding? @"expand" : @"fold");
 
 }
 
-- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChangedWithAnimationCompledted:(BOOL)isExpending
+- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChangedWithAnimationCompledted:(BOOL)isExpanding
 {
     NSLog(@"IGLDropDownMenu size: %@", NSStringFromCGSize(dropDownMenu.bounds.size));
 }
