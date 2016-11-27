@@ -110,7 +110,7 @@ If you use customView, the customView will auto set `userInteractionEnabled = NO
 
 ####*For `IGLDropDownMenu`*
 - `- (void)dropDownMenu:(IGLDropDownMenu*)dropDownMenu selectedItemAtIndex:(NSInteger)index;`
-- `- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpending;`
+- `- (void)dropDownMenu:(IGLDropDownMenu *)dropDownMenu expandingChanged:(BOOL)isExpanding;`
 
 ## Requirements
 
