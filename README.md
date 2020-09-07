@@ -117,12 +117,6 @@ If you use customView, the customView will auto set `userInteractionEnabled = NO
 - target platform: >=iOS 6.0 (I never test the version below 6.0, maybe you can make some try and tell me.)
 - ARC
 
-## Sponsor
-
-You can support the project by checking out our sponsor page. It takes only one click:
-<a href="https://tracking.gitads.io/?repo=IGLDropDownMenu"> <img src="https://images.gitads.io/IGLDropDownMenu" alt="GitAds"/> </a>
-<br><i>This advert was placed by <a href="https://tracking.gitads.io/?campaign=gitads&repo=IGLDropDownMenu&redirect=gitads.io">GitAds</a> </i>
-
 ## Thanks
 
 This drop-down menu idea is come from [here](http://tympanus.net/Development/SimpleDropDownEffects/index.html), I found this demo one day and just implement it on iOS.
